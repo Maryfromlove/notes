@@ -8,20 +8,25 @@
 
 想要一个脚本能帮我实现定时“自动保存”的功能。
 
+## 环境
+
+- Win10
+
+- powershell 5.1
+- 已初始化项目Git
+
 ## 注释
 
 阅读以下注释，然后确定无误后按照`;`压行。
 
 ```powershell
-$sb = {                             #设置代码块（根据需求自行修改）
-	$d = "D:\Twy59sGthb\notes"  ;   #设置你的路径（Git初始化完毕）
-	$m = "Auto-Save"            ;   #设置commit信息
-    Set-Location -path $d       ;    
-    git add .                   ;    
-    git commit -m $m            ;    
-    git push -u origin master   ;   
-};
-$when = New-JobTrigger -Once -At "0:02"                    	#建议使用未来时间
+$sb = {                             						#设置代码块（自行修改）
+    Set-Location -path "D:\Twy59sGthb\notes"       		;	#设置你的路径
+    git add .                   						;    
+    git commit -m "Auto-Save"            				;	#设置commit信息
+    git push -u origin master   						;   
+}														;
+$when = New-JobTrigger -Once -At "0:02"                    	#设置开始时刻
         -RepetitionInterval (New-TimeSpan -Minute 12)       #设置重复间隔
         -RepetitionDuration ([TimeSpan]::MaxValue)      ;   #设置重复时长（无限）
 Register-ScheduledJob -Name Git_autosave_notes              #设置定时任务的名称
@@ -41,11 +46,9 @@ $t | Disable-ScheduledJob                                   #禁用任务
 以管理员身份`Win+X+A`打开powershell执行压行以后的脚本：
 
 ```powershell
-$d = "D:\Twy59sGthb\notes";  
-$m = "Auto-Save";   
-$sb = {Set-Location -path $d;git add . ;git commit -m $m;git push -u origin master;}
-$when = New-JobTrigger -Once -At "0:02" -RepetitionInterval (New-TimeSpan -Minute 12) -RepetitionDuration ([TimeSpan]::MaxValue) ;  
-Register-ScheduledJob -Name Git_autosave_notes -ScriptBlock $sb -Trigger $when;
+$sb = {Set-Location -path "D:\Twy59sGthb\notes";git add . ;git commit -m "Auto-Save";git push -u origin master;};
+$when = New-JobTrigger -Once -At "0:02" -RepetitionInterval (New-TimeSpan -Minute 12) -RepetitionDuration ([TimeSpan]::MaxValue); 
+Register-ScheduledJob -Name Git_autosave_notes -ScriptBlock $sb -Trigger $when; 
 ```
 
 ## 检查
@@ -69,8 +72,12 @@ Register-ScheduledJob -Name Git_autosave_notes -ScriptBlock $sb -Trigger $when;
 
 ## 参考
 
-[PSScheduledJob](https://docs.microsoft.com/en-us/powershell/module/psscheduledjob/?view=powershell-5.1)
+[PSScheduledJob](https://docs.microsoft.com/en-us/powershell/module/psscheduledjob/?view=powershell-5.1)【官方手册】
 
 [PowerShell 计划工作（ScheduledJob）](https://www.pstips.net/about-scheduledjob.html)
 
 [Powershell v3 New-JobTrigger daily with repetition](https://stackoverflow.com/questions/12768769/powershell-v3-new-jobtrigger-daily-with-repetition)
+
+## 体会
+
+主要还是对ps的语法障碍比较大，“-Xxx value”这样形式
