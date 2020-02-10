@@ -11,8 +11,8 @@
 ## 环境
 
 - Win10
-
 - powershell 5.1
+
 - 已初始化项目Git
 
 ## 注释
@@ -20,14 +20,14 @@
 阅读以下注释，然后确定无误后按照`;`压行。
 
 ```powershell
-$sb = {                             						#设置代码块（自行修改）
-    Set-Location -path "D:\Twy59sGthb\notes"       		;	#设置你的路径
-    git add .                   						;    
-    git commit -m "Auto-Save"            				;	#设置commit信息
-    git push -u origin master   						;   
-}														;
-$when = New-JobTrigger -Once -At "0:02"                    	#设置开始时刻
-        -RepetitionInterval (New-TimeSpan -Minute 12)       #设置重复间隔
+$sb = {                                                     #设置代码块（自行修改）
+    Set-Location -path "D:\Twy59sGthb\notes"            ;   #设置你的路径
+    git add .                                           ;    
+    git commit -m "Auto-Save"                           ;   #设置commit信息
+    git push -u origin master                           ;   
+}                                                       ;
+$when = New-JobTrigger -Once -At "0:02"                     #设置开始时刻
+        -RepetitionInterval (New-TimeSpan -Minute 12)       #设置重复间隔（12分钟）
         -RepetitionDuration ([TimeSpan]::MaxValue)      ;   #设置重复时长（无限）
 Register-ScheduledJob -Name Git_autosave_notes              #设置定时任务的名称
         -ScriptBlock $sb -Trigger $when                 ;   #绑定代码块和触发器
@@ -80,4 +80,6 @@ Register-ScheduledJob -Name Git_autosave_notes -ScriptBlock $sb -Trigger $when;
 
 ## 体会
 
-主要还是对ps的语法障碍比较大，“-Xxx value”这样形式
+主要还是对ps的语法障碍比较大，“-Xxx value”这样形式的传参是不能直接乱写变量上去的（可能）。
+
+还有ScriptBlock中的脚本最好一句话用分号隔开，一开始我用了逗号错了。跟在CLI输入的情况是有点不一样的。
