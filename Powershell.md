@@ -17,11 +17,9 @@ $action = {
 	git add .                       ;    
 	git commit -m "ps auto-save"    ;    
 	git push -u origin master;}
-$when = New-JobTrigger -Daily -At "15:55" -DaysInterval 1
+$when = New-JobTrigger -Once -At "16:20" -RepetitionInterval (New-TimeSpan -Minute 12) -RepetitionDuration ([TimeSpan]::MaxValue)
 Register-ScheduledJob -Name Git_autosave_notes -ScriptBlock $action -Trigger $when
 $t = Get-ScheduledJob -Name Git_autosave_notes
-$t.JobTrigger.repetition.interval = "PT10M"    	# every 15 mins
-$t.JobTrigger.repetition.duration = "PT23H30M" 	# for 7 hours 30
 $t | Enable-ScheduledJob
 ```
 
