@@ -1,6 +1,6 @@
 # Powershell 实战：定时任务
 
-> 但到目前为止都还没生效。
+> 
 
 ## 背景
 
@@ -10,8 +10,6 @@
 
 ## 安装
 
-src: [Powershell v3 New-JobTrigger daily with repetition](https://stackoverflow.com/questions/12768769/powershell-v3-new-jobtrigger-daily-with-repetition)
-
 ```powershell
 #$principal = New-ScheduledTaskPrincipal -UserID MyDomain\MyGMSA$ -LogonType Password -RunLevel Highest
 $action = {
@@ -19,11 +17,11 @@ $action = {
 	git add .                       ;    
 	git commit -m "ps auto-save"    ;    
 	git push -u origin master;}
-$when = New-JobTrigger -Daily -At "15:28" -DaysInterval 1
+$when = New-JobTrigger -Daily -At "15:55" -DaysInterval 1
 Register-ScheduledJob -Name Git_autosave_notes -ScriptBlock $action -Trigger $when
 $t = Get-ScheduledJob -Name Git_autosave_notes
-#$t.Triggers.repetition.Interval = "PT5M"    	# every 15 mins
-#$t.Triggers.repetition.Duration = "PT7H30M" 	# for 7 hours 30
+$t.JobTrigger.repetition.interval = "PT10M"    	# every 15 mins
+$t.JobTrigger.repetition.duration = "PT23H30M" 	# for 7 hours 30
 $t | Enable-ScheduledJob
 ```
 
@@ -37,3 +35,9 @@ $t | Enable-ScheduledJob
 
 1. 运行`taskschd.msc` 在根目录下找到目标任务，删除即可。
 2. 命令行执行`Unregister-ScheduledTask  -TaskName Git_autosave_notes`
+
+## 参考
+
+[PowerShell 计划工作（ScheduledJob）](https://www.pstips.net/about-scheduledjob.html)
+
+[Powershell v3 New-JobTrigger daily with repetition](https://stackoverflow.com/questions/12768769/powershell-v3-new-jobtrigger-daily-with-repetition)
