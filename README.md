@@ -1,5 +1,5 @@
-# notes
-notes for many things.
+# Notes R<font color="crimson" ><i>χ</i></font><sup>v</sup>
+Notes for many things.
 
 ## Recent Activities
 
