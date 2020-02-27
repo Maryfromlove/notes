@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>对线文档</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="吃瓜长文" class="md-header-anchor"></a><span>吃瓜长文</span></h1><p><span>本文给大家分享一下我家的陈年老瓜。</span></p><p><span>阅读警示：文本8000多，排版混乱，表达有限，谨慎阅读。</span></p><h2><a name="前言" class="md-header-anchor"></a><span>前言</span></h2><p><span>我觉得我在朋友当中算脾气不算很坏的人，也是一个有点心软在乎感情的人，一般我对人忍无可忍的时候，说明这个人已经做过很多我看不惯的事情，而且影响到我了。</span></p><p><span>那么，家里有什么乌烟瘴气的事情我看不惯，而且很影响我呢？</span></p><h2><a name="故事的背景" class="md-header-anchor"></a><span>故事的背景</span></h2><p><span>我从幼儿园还没到就是父母离异，然后我爸再婚，其实我觉得这没什么，很多人再婚了家庭氛围反而会更好一点，这种事情都要具体问题具体分析。他们离婚的事情其实跟我关系不大，甚至我可以说我一点都不在乎，我只要我过得爽，他们爱咋咋地。</span></p><p><span>我觉得我的态度是这样的：</span></p><ol><li><span>养护子女是法定监护人的义务。所以如果只是把孩子抚养长大，其实只是做到了</span><strong><span>【没有违法】</span></strong><span>而已，并不是什么值得</span><strong><span>【夸大】</span></strong><span>的事情。</span></li><li><span>父母在小孩子成长过程中应该都要有参与（尤其是较小的时候），丧偶式家庭无论也没有离异重组的步骤，都是会有问题的。</span></li><li><span>对小孩如果</span><strong><span>【责备质问】</span></strong><span>多于</span><strong><span>【鼓励表扬】</span></strong><span>，那还指望小孩子喜欢你嘛？做梦吧。</span></li></ol><h2><a name="魔幻的情节" class="md-header-anchor"></a><span>魔幻的情节</span></h2><h3><a name="1-我奶奶曾经替我爸解释再婚的原因" class="md-header-anchor"></a><span>1 我奶奶曾经替我爸解释再婚的原因</span></h3><p><span>我很小的时候，我奶奶就给我灌输这样的想法：</span></p><blockquote><p><span>她说他觉得，小孩子没妈养很可怜。</span></p></blockquote><p><span>？？？说真的，这算安慰我吗？？？</span></p><p><span>我觉得倒不如直说，我爸一个人带小孩不行呗，也不是看不出来。</span></p><p><span>往往说到这里，我奶奶会强调，我生母是</span><strong><span>【抛弃】</span></strong><span>我的。</span></p><p><span>虽然她感情上可以是绝情，但是人家合法离的婚，关我屁事，还要专门挑出来说我？？？</span></p><p><span>说真的，我亲妈选择离婚对我确实不义，但是柳市这个地方，还有我的亲戚确实让人很烦。</span></p><blockquote><p><span>在后来我的高中也有老师们和我们说过，你们一定要好好读书，离开柳市这个小地方。</span></p><p><span>还有我看过一些民政报告，指出柳市大部分是流动人口，很多有钱的人都选择去其他地方定居了（可能是市级更上层的地区，或者是发达城市）</span></p><p><span>我生母后来的人生轨迹还是蛮有趣的。</span></p></blockquote><hr /><p><span>在这里再补充一下，这个</span><strong><span>【抛弃】</span></strong><span>一词其实也很不恰当，混淆视听。</span></p><p><span>因为法院把子女判给父亲这边了，她的材料不足以证明能承担监护权呗，怎么能说</span><strong><span>【抛弃】</span></strong><span>呢？</span></p><p><span>如果我能预知未来并且有选择权的话，我要自己过的安稳一点还是会选择父亲这边，因为我生母后面很长一段时间过的是流动人口的生活，而且她家族也很风气有问题</span><strong><span>（而且她后来就很坦诚地承认了自己家族有人有法律上的问题，她自己后来也意识到家人就是大麻烦，这点我还是蛮赞成的，就是比我发现的晚有点憨憨）</span></strong><span>，我不喜欢。两边都不是省油的灯，我觉得法院判给更稳定一点的一方确实好。</span></p><p><span>所以我应该感谢的是法院吧。</span></p><h3><a name="2-对我个人的施压" class="md-header-anchor"></a><span>2 对我个人的施压</span></h3><p><span>我觉得我家族和我亲妈的家族是有很大冲突事件的，这也一部分地导致了离婚。</span></p><p><span>但是他们发生什么事其实跟我屁关系没有，我也不想知道，陈年往事不要再提不就好了。</span></p><p><span>他们嘴上说着我还小那些事情不想太早告诉我，结果是什么呢？实际上他们总是不在乎我感受地反复提起我父母离婚的事情。导致我对同年的回忆主要停留在这些事情上面。</span></p><h3><a name="3-小孩子不爱讲话你强迫一下就爱讲话了放屁吧" class="md-header-anchor"></a><span>3 小孩子不爱讲话，你强迫一下就爱讲话了？放屁吧？</span></h3><p><span>这是我小时候最大的阴影就是，我的家人强迫我讲话。这个强迫包括但不限于：</span></p><p><span>质问我为什么叫称呼。</span></p><p><span>质问我为什么不打招呼。</span></p><p><span>质问我为什么不对客人说话。</span></p><h4><a name="小孩子身上的所有问题都能在家庭成员身上找到原因" class="md-header-anchor"></a><span>小孩子身上的所有问题都能在家庭成员身上找到原因。</span></h4><p><span>我现在其实很多时候我都能顺利地和陌生人说话了，有时候甚至还比一些同学要胆大。大概是从高中考了第一名的那次以后，开始有所好转。所以我觉得我不敢说话主要的原因还是在于，我不够自信，也不够快乐。</span></p><blockquote><p><span>高中考试中获得的自信与快乐其实是我以前的人生一直都没有获得的东西，这个转变其实我要感谢的不是我的父母，而是另外的【优秀/沙雕网友】给我了许多【榜样】的力量，而且他们也是很会与人交流，给我的感觉就是，【原来世界上还有这么好的人】，跟他们沟通的时候就会感觉很舒服，而且我算是从他们正经与不正经的聊天中，学到了很多。</span></p><p><span>当然时过境迁，网友换了一批又一批，大家因为兴趣产生而相聚，因为兴趣减弱而分离，我觉得还是很正常的，所以我相对来说对毕业这种事情不是很有波动。我当时也有对他们犯过不成熟的错误，算是我最初的待人处事的经验积累吧。</span></p></blockquote><p><span>但是反观我的家庭成员呢？除了责怪我，根本就没有做出任何积极的努力，他们越是责怪，就是越破坏我的自尊心，而且积累了我对那些【客人】的不满。</span></p><p><span>原本一开始，原本我只是因为不自信而且不快乐，所以比较自闭，不爱说话，不敢和人热情说话。</span></p><p><span>后来被他们不断地迫害之后，我变成了，只要是和他们有关的人，我都默认有一种</span><strong><span>【厌恶】</span></strong><span>。即使是现在长大了，这种</span><strong><span>【厌恶】</span></strong><span>也一直存在。所以后期我不愿意和人打招呼，主要是由于长久以来我父母在我心中积累的</span><strong><span>【不满】</span></strong><span>太多了，我很厌恶和他们寒暄。</span></p><p><span>高中毕业以后认识的一些人，还有大学的朋友给我了很多新的快乐，所以有一段时间我对家人的态度也是比较积极的，我想虽然他们都是烂人，但是我不能跟着一起烂死。所以他们那个时候他们叫我叫谁，我都有尽力去附和。但是那种从小到大积攒的</span><strong><span>【不满】</span></strong><span>会这么容易抵消吗？</span></p><p><span>不会的。</span></p><p><span>我每次和他们光是说话都有一种</span><strong><span>【忍耐】</span></strong><span>在里面了。但我的家人从来没有去意识到从小对我的伤害，没有道歉，没有体谅，只有</span><strong><span>【理所当然】</span></strong><span>。</span></p><p><span>当然，一部分原因是我从未提起这样的事情。我不提起这样的事情原因是什么呢？因为我想，我说了能图什么呢？或许能得到道歉和理解？能有用吗？问题是伤害已经造成了，给我的潜意识已经留下了【厌恶】的感觉了。</span></p><p><span>虽然没用，但是我会找个爽快的机会说一下。比如找找个吃瓜大会的机会。</span></p><h4><a name="不会在自己身上找原因的无能大人" class="md-header-anchor"></a><span>不会在自己身上找原因的无能大人</span></h4><p><span>我上面说到，还是小孩子的我不爱讲话，我家里的大人只会质问我，怪我没礼貌。而我真正的问题在于</span><strong><span>不自信，不快乐</span></strong><span>。为什么呢？</span></p><h5><a name="1-我童年家里不和睦" class="md-header-anchor"></a><span>1 我童年家里不和睦</span></h5><p><span>我的后母嫁到家里不久，因为是后来的，肯定会被比较，被挑刺。这也是我非常厌恶家庭风气的一部分。经常听到父母吵架和长辈们这样那样的流言蜚语。</span></p><p><span>我从小最大的自卑不是我是父母离异家庭重组的孩子。</span></p><p><span>而是我是一个冷热暴力不断，闲言碎语繁多的家庭里的孩子。</span></p><h5><a name="2-我个人的学力不足" class="md-header-anchor"></a><span>2 我个人的学力不足</span></h5><p><span>我较小的时候，学习成绩确实不好，也确实喜欢玩，小学初中的时候估计中等偏下，时不时还是会被骂。但是那个时候是我最孤独的时候，没有很多朋友，家里人又说话难听。小时候的我能从哪排解压力呢？除了玩还能怎么样？？？</span></p><p><span>我后来才明白，小学初中（甚至中学）的学习成绩和什么最有关？——家长水平和资源啊。</span></p><p><span>你指望每个小孩生下来就懂事听话，热爱学习？我就见过不同的人，不同的境遇。</span></p><p><span>我给你讲讲的我见过的真实例子：</span></p><p><strong><span>小a同学，其实是属于不太有天赋的人，但是小时候比较用功，家庭的学习环境就不错，积极影响大</span></strong></p><blockquote><p><span>他们家就是属于父母都有比较正式的工作，而且比较关注小孩子的成长和学习的，小学我印象最深的事情就是她学古筝，拿过一些奖。在我小学初中的时候还是比较拔尖的，但是后来走了下坡路，中学时代的她只能说中规中矩，但是比不上那些很厉害的同学。最后高考有点失利，结果不理想。</span></p><p><span>但是为什么她小学表现会那么好，一部分是因为女孩子可能发育比男孩子早，所以普遍女孩子能在小学阶段有较好的学习能力。但是为什么她特别好？我觉得主要是她的家风很好，没什么烦心事，她父母虽然有点要求她学古筝学好，但是这也是说明他们很关注教育，而且很早就做了较好的规划。后来直到她中学都是上了算是最好的学校最好的班级了。</span></p></blockquote><p><strong><span>小b同学，但是小时候非常用功，但是是典型的家暴家庭，学习好人品差</span></strong></p><blockquote><p><span>这个小学同学其实让人很害怕，因为她很凶，而且打人下手很重，但是学习也是非常好的。但是后来我才理解了，因为她家里就是那种暴力教育的形式，给她树立了【榜样】所以我对她的暴力还是很理解的。有一段时间我和她相处的还可以，其实她也是受苦很大的小孩。她还去了学习压力最大的高考机器中学，未来她怎么样我不了解，希望她苦尽甘来把。</span></p></blockquote><p><strong><span>小c同学，我最羡慕的朋友，男生的中的大哥大，性格偶尔暴躁，但是学习好人品不错</span></strong></p><blockquote><p><span>他是少有的几个我去过人家家里玩的好友之一，喜欢运动也喜欢游戏。他给我的感觉是家人非常开明，不介意他玩游戏，跟他父母关系算是很【铁】，称兄道弟的那种。但是他父母对他要求也很高，小学后期他也是在为上最好的初中而被要好好学习，但是因为他本身基础不差，所以学习冲上去算是不难的。</span></p><p><span>我对他最后的印象是大学上了浙江大学，虽然小学之后已经没有但是依旧是很羡慕的，不管是小时候还是长大以后。</span></p></blockquote><p><span>通过他们的例子，我觉得，小孩子学习不好，是一个人生理上心理上还有家庭环境上综合干预的事情。结果事情都赖在小孩身上给小孩施压。小孩会对你有正面情感吗？况且那个时候我还不懂这个道理，把所有事情都怪罪到自己身上，好像自己是罪人，努力了很久学习成绩，还有听写默写出错。我不自闭才怪吧。</span></p><p><font size="55px" color="red"><strong><span>这都怪谁呢？</span></strong></font></p><h4><a name="世界上只有我不爱说话吗明明一抓一大把啊" class="md-header-anchor"></a><span>世界上只有我不爱说话吗？明明一抓一大把啊？？？</span></h4><p><span>我问过很多同学，他们家里和睦吗？爱叫爸妈吗？大多数内向的同学在家也不爱说话的！</span></p><p><span>要是我还以为世界上只有我这样我差点得抑郁了。</span></p><p><span>可惜我爸妈的参考系只有</span><strong><span>【他们朋友】</span></strong><span>的孩子。</span></p><p><font size="55px" color="red"><strong><span>呵呵</span></strong></font></p><h4><a name="荒谬的污蔑" class="md-header-anchor"></a><span>荒谬的污蔑</span></h4><p><span>不会在自己身上找原因就算，你猜我家人会在哪里找原因——我亲妈。</span></p><p><span>我后妈，我奶奶，我爸爸从小到大最大的笑话就是，把找不到原因的事情怪在我亲妈身上。合着我亲妈就是免费背锅侠咯？（具体的细节我会在另外一个分栏细说）。</span></p><p><span>他们的逻辑是这样的：</span></p><p><span>我小学的时候，我亲妈来看我一次，我就成绩下滑，不想说话，等等。</span></p><p><span>我奶奶曾经问我，本来我都学着会说叫后妈妈妈的，这么她一来我就不叫了啊。</span></p><p><span>那时候我寻思真的叫过吗？我真的想说，</span><strong><span>我没有我不会别诬陷我啊</span></strong><span>。</span></p><p><font  size="55px" color="red"><span>然后他们就开始胡思乱想，搬弄是非，说是我亲妈叫我不要叫家里人的，是她叫我不要听家里的话的，是她叫我不要好好学习的，都是她教坏了我。</span></font></p><p><span>我上面已经说的很清楚了，我为什么不爱讲话，根本原因都是出自于他们。我生母从来没对着我说过我家里人的坏话，一句都没有！而我的【家人】呢？极尽所能抹黑我生母，我是她儿子就连着一起抹黑。</span></p><p><span>你们这样诋毁我和我生母，作为一个手无缚鸡之力的小孩子，</span></p><p><font size="55px" color="red"><span>我还他妈自信你麻痹呢？快乐你麻痹呢？</span></font></p><p><font size="55px" color="red"><strong><span>但是这种思想贯穿了我的一生，我最憎恨的事情就是，从我亲妈身上找原因。</span></strong></font></p><p><span>当然这里的主要凶手就是我思想观念陈腐的奶奶。</span></p><p><span>其次是我后妈，因为她信了我奶奶的鬼话，跟着一起</span><font size="55px" color="red"><span>鬼话连篇</span></font><span>。</span></p><h3><a name="4-我最讨厌的语言是家乡话" class="md-header-anchor"></a><span>4 我最讨厌的语言是家乡话</span></h3><p><span>为什么？</span></p><p><span>因为我奶奶就是用家乡话和我</span><font size="55px" color="red"><span>鬼话连篇</span></font><span>的。</span></p><p><span>我对家乡话的主要记忆就是她的鬼话。</span></p><p><span>也是因为家乡话，导致我没有办法还嘴，因为我会的很少。</span></p><p><span>我为什么要学一门总是用来伤害我的语言？？？</span></p><h3><a name="5-澄清我生母背锅的故事" class="md-header-anchor"></a><span>5 澄清我生母背锅的故事</span></h3><p><span>上面已经说了我家（主要是奶奶）喜欢说一些污蔑我生母的话。我需要澄清的是：</span></p><p><span>我生母从来没有叫我要对家里人怎么怎么样坏，恰恰相反，她叫我要对家里人好，要好好读书以后找好工作，这样她才更有机会来看望我。</span></p><p><span>而我对家里的态度上面也部分解释了，主要是因为我不快乐，而且家里人闲言碎语，对我而言就是尖酸刻薄。而且我无力还手。</span></p><p><span>我亲妈主要是对</span><strong><span>我太好了</span></strong><span>！带我去玩，不会说方言垃圾话，不会问对我问东问西，我学习成绩不好也知道体谅我，但是也有劝导我一定要好好读书。对我来说太好了，家里简直是好吗。我觉得她这是正常的行为，因为她不用天天在一起，也没有监护权。难得见一次当然是百依百顺这么好怎么来了。</span></p><p><span>但是这种尊重的感觉我在家里就没有体会到的。</span></p><p><font size="55px" color="red"><span>你去天堂爽过了，回到地狱的时候你还感跟阎王爷亲吗？？？</span></font></p><p><span>回来以后还要被酸，我现在想想都来气。</span></p><hr /><h4><a name="先斩后奏的由来" class="md-header-anchor"></a><span>先斩后奏的由来</span></h4><p><span>当然我不是说我生母没有问题，她来看我有一点问题是，我奶奶的思想逐渐发酵。导致我全家都是那么以为。所以她每次来看我给家里打电话，肯定会被酸，被黑。</span></p><blockquote><p><span> 甚至我当时的小学语文老师，数学老师都知道了，一起来为难我（？？？）</span></p><p><span>我简直是想骂人，丢不丢人啊！！！</span></p><p><span>这是什么垃圾家庭啊。</span></p></blockquote><p><span>是我我也不敢，她后来来见我都是先斩后奏，他会把手机给我，让我自己打电话给家人，告诉他们我生母来了，陪我住几晚（一般是周末）。而且周末一般又有补习班，我作为一个小孩，喜欢玩，讨厌补习班不是很正常的吗？而且补习班我到底学了什么屁东西呢？也没有啊。我很多时候没来得及把补习班材料带在身上真的就不想去了。</span></p><p><font size="55px" color="red"><span>我tm哪里敢打啊！！！！！</span></font></p><p><span>于是我生母多了一项罪名——没有通知就带走我，而且还旷课。（其实旷课是我自己的主意，她知道放我旷课会被骂，但是我找了借口。她其实会根据我上课的时间更改安排的，也不是一定要怎么样，只要陪我就好了。）</span></p><p><span>其实是我和她都不敢和这些</span><strong><span>垃圾</span></strong><span>说话。</span></p><p><span>你不知道我害怕到什么程度——本来她只能通过打我家电话联系我的，而且那个时候是座机！注意——座机是在我爸妈房间里面的，所以我对这个座机的响铃非常害怕，因为如果她打过来，我又不知道要被家里人怎么样酸黑。</span></p><p><span>不管怎么样，他们肯定会问我，我生母说了什么？是不是又要带我出去玩？等等等。</span></p><h4><a name="她也自私也张扬但是很尊重人" class="md-header-anchor"></a><span>她也自私也张扬，但是很尊重人</span></h4><p><span>我觉得她让我最不舒服的一点就是导出去说她是我生母。我不是很喜欢这种事情被别人知道。而且小学老师知道我生母的事情也是有她的参与。所以某种意义上给我没事找事了。</span></p><p><span>但是清楚地记得我和她说过，【不要再那么张扬了】以后，虽然她很不服气，觉得不爽，但是尊重了我的意见，后来再也没有（在我看来）到处见人就说她是我妈。</span></p><p><span>而且她从来没有强迫我去和不熟的人说话。我觉得她更有成熟的社交技巧。比如带我遇到其他不认识的阿姨，她会跟我介绍这个阿姨以及基本信息，然后把我介绍给对方，这样双方就知道了，我也不需要说什么多余的话。就很舒服，反观我家人，从来不给我介绍陌生人是谁，好像还永远指望我做自我介绍？我吃屎都不可能吧。</span></p><h3><a name="6-不会意识到自己说话伤小孩" class="md-header-anchor"></a><span>6 不会意识到自己说话伤小孩</span></h3><p><span>以上故事中主要的让我很不愉快的成员是我的奶奶，就因为她给我造成的不快，让我对他也渐渐失去了“耐心”。</span></p><p><span>而我后母虽然应该很无辜，但是她卷入了我的生活自然是逃不了关系的。</span></p><p><span>她的核心问题在于，她没文化，不会意识到自己说话伤小孩，不会说关心的话，反倒是挑刺的话一大堆。喝酒以后竟会说一些丑话，而且不知道夫妻吵架要避开小孩。</span></p><p><span>给大家举个例子：</span></p><h4><a name="案例一" class="md-header-anchor"></a><span>案例一：</span></h4><p><span>有一次我在路上踩了一个井盖，没有摔下去，但是左腿上一块肉很明显的被刮掉了，我几乎是倒在地上疼了很久很久无法站起来移动了，我那时候心里好苦，是依靠一个路人小哥扶我回到家的。大晚上的遇到一个路人，先是问我伤势是不是很重，能不能起来，然后问我要不要去诊所，我说我先回家可以处理，他就帮了我一把，还有说了很多要小心的话，告诉我接下来要这么处理，我觉得普通人应该都会有的反应吧。</span></p><p><span>我后妈见到的第一反应：你怎么弄得？这么不小心？</span></p><p><span>我听到的时候第一反应是，对不起我不是亲生的，给您添麻烦了，真抱歉。</span></p><p><span>这个伤已经过去两三年了，我到现在看到这个疤就会想起来她的态度。</span></p><h4><a name="案例二" class="md-header-anchor"></a><span>案例二：</span></h4><p><span>2019年下半年，我有一次熬夜做项目了，晚上的电话都没来得及接通，但是我很累很累，在床上就睡了而且我大周末早上睡个懒觉，她好像是转了学费到我的学校银行卡上，因为数额比较大，叫我确认一下。但是我还在睡觉，一个电话过来把我吵醒。我忍了忍，接了，结果一开口就是骂我，说我这么不接电话，搞得好像我很大逆不道一样。</span></p><p><span>我被吵醒也没心情听这种屁话的，直接挂了，爱咋咋地吧。</span></p><p><span>我想一个正常的，在担心孩子的母亲，这种时候的发言应该是“你昨天没事吧？为什么没有接电话，是不是不舒服？”</span></p><p><span>结果她这样子。好吧，对不起我不是亲生的，给您添麻烦了，真抱歉。</span></p><h4><a name="案例三" class="md-header-anchor"></a><span>案例三：</span></h4><p><span>你知道她叫我吃饭是什么口气吗？你可以想象一下军训教官叫你报数的那个语气。呵呵。</span></p><p><span>而且我房间和厨房连在一起，她洗碗我都听得到，她还要开门来再吼我一下吃饭。</span></p><p>&nbsp;</p><p><span>上面这几个例子只是无数生活细节的一部分，我从小到大都要忍受这种有攻击性的语言暴力。（就是骂人语气）我觉得这就是语言暴力，但是他们好像永远不会意识到自己讲话在伤害小孩。甚至我说她这一点的时候，她还以为是她说了什么东西破坏了我家什么的？</span><font size="55px" color="red"><span>我跟她估计很难在一个频道上对话了</span></font></p><p><span>就因为这样我会想起以前家里给我的无数难受的过往，我真的觉得这个家对我折磨大于幸福。所以，我非常失望了。</span></p><h3><a name="7-我对我后妈很坏吗" class="md-header-anchor"></a><span>7 我对我后妈很坏吗？</span></h3><p><span>我家里人一直说，我后妈对我算不错的了，确实如此，她确实没做违法的事情。但是我想说我有对她很坏吗？？？</span></p><p><span>我忍了这么多年的气话没有跟我爸告她，没有诋毁她，没有为难她，我高中学习成绩不错，最后大学也考得不算差的，大一回家我还带了零食分给弟弟。我很差吗？我应该也算比较不错的子女了吧？</span></p><p><span>甚至！</span></p><p><span>有一次她和我爸吵架（大概是我高中的时候，有一次我爸喝酒了说了小儿子的坏话）她忍不住了在客厅哭！！！我tm还去安慰她了，我说都是我爸不好，他这样讲话就是缺德！！！甚至我还把我弟弟从斗争的中央拉到我房间玩，不要让他一个人受苦！！！</span></p><p><span>在你们这些垃圾家长不关心小孩的心理瞎吵架的时候，我一个过来人，居然还站出来安慰我后妈，我为什么要以德报怨啊，他们到底为什么配得上我这么好的子女啊？？？我弟为什么就有我这么好的哥哥呢？</span></p><p><font size="55px" color="red"><span>那我小时候呢？？？我小时候为什么就没有哥哥替我站出来为我说话呢？？？为什么我就只能在父母吵架的时候蹲在自己床上委屈呢？？？有人关心过我的心情吗？？？</span></font></p><p><span>没有，甚至我的网友都能和我分担情绪，但是我爸妈同学就都不行。</span></p><p><span>我感觉我自己简直是，太好了，结果呢？什么都没有改变。</span></p><p><span>可能也是托我的福，我弟似乎过上了一个正常的，有完整家庭的人生，父母常在，有朋友，有圈子，家庭和睦，和和美美。</span></p><p><font size="55px" color="red"><span>真好啊，那我的呢？那我的呢？那我的呢？那我的呢？那我的呢？那我的呢？我失去的谁赔我呢？</span></font></p><h3><a name="8-我依旧是太心软了" class="md-header-anchor"></a><span>8 我依旧是太心软了</span></h3><p><span>我总是试图在内心理解，在为家人辩护，我去想他们就是生活在一个比较尖酸刻薄的社会，不会去表达关心，不会去在意别人的感受，尤其是家里人，更加是一句</span><strong><span>【不要你们见外/客气】</span></strong><span>就搞得所有事情都烟消云散。所以我让步了，我觉得减少痛苦的一个办法就是远离痛苦，我一年能不回家就不回家，我在家也是能不和他们接触就不和他们接触。</span></p><p><span>或许我过我的，他们过他们的，大家各自有各自的生活模式，交际圈子，让自己开心就好了啊。</span></p><p><span>我还能怎么样，惹不起，躲不起吗？</span></p><h3><a name="9-事实上我是没爸养的" class="md-header-anchor"></a><span>9 事实上我是没爸养的</span></h3><p><span>其实我感觉我弟弟才是有爸爸的人，我就没有父亲这样的概念。</span></p><p><span>我很羡慕别人的男方家长都能在家庭问题中起到一个处理者的角色。</span></p><p><span>而我爸在我小时候几乎不存在吧。</span></p><p><span>他给我仅有的记忆都是不开心的，偷偷用花费充值了七个qq的钻石服务，他下楼来准备打我的恐吓。</span></p><blockquote><p><span> 我知道我爸没有真的打过我，但是恐吓不算加害吗？</span></p><p><span>而且在没有消除这种恐吓的情况下，还指望我能和他一起出去玩吗？</span></p></blockquote><p><span>还有就是很小的时候带我去海滩玩，我好像犯蠢了，闹了一小点事情。结果就是，对我的批评永远不会缺席，对我的鼓励永远不会兑现。还有很多细节我都很难受的。所以从有个事件以后就再也不会轻易和我爸出去玩了，而且我爸一出去玩就是去深山老林里，我一点安全感都没有，又脏又累又晒又蚊虫多。</span><strong><span>为什么别人家的小孩那么小就去过北上广深或者南京武汉各种知名城市了，我爸爸天天带我去周围一些说不出来名字的深山老林里东跑西跑，我也大概知道，主要是没什么钱</span></strong><span>。</span></p><p><span>我真心希望我以后的生活是在现代化发达的大城市，而不是我家附近的什么乱七八糟的山头上的。</span></p><p><span>还有就是我勉为其难的答应他去学攀岩的时候，他没有在过程中给我任何帮助，也没有观察过我到底合不合适，只是把我送到场地，其他小孩都很会的样子，让我一个人受委屈，我本来就缺乏自信，这么多身体上的委屈我真受不了了，我就走了。事后他还给我补刀说，我让他很失望（？？？是我主动要来的吗？？？还对我说失望？？失望你mb啊）。</span></p><p><span>还有无数次他和我后妈吵架，起因也都是他，他把我后妈搞起起来，我能有好脸色看吗？不，他不在乎，他只觉得和朋友喝酒爽最重要。</span></p><p><span>家还有我去大学第一次寒假回家，他说来接我，我还稍微有一点点感动。结果我上车发现另外一个人。原来他是要接送朋友，顺路。我尴尬死了，那我还不如滴滴拼车，至少滴滴叫道的车还有概率不是二手车。</span></p><h3><a name="10-我的亲戚又是什么样的人------表里不一" class="md-header-anchor"></a><span>10 我的亲戚又是什么样的人——表里不一</span></h3><p><span>我的二姑算是亲戚里带头侮辱我弟弟的几个人之一的吧，由此被我后妈知道了，她又情绪激动了一场。但是我的二姑在我面前总是说一些很好的话。我觉得，这些人太假了，嘴也太贱了。</span></p><p><span>我的伯父和伯母。我的生母本来很信赖伯母。本来我觉得伯父伯母家也还好，没拿我怎么样。但是我高考填志愿的时候，我跟我生母这个憨憨讨论了一下去国际合作学校学习的可能性，然后她这个憨憨真的有点相信我要去上了。然后就和伯母讨论，叫伯母先保守一下秘密，等我选完了再说，说真的我现在还能找到我填志愿的截图，我压根没当回事儿，只是感觉羡慕一下，瞎想一下而已。然后我伯母就慌了，马上出卖我生母，然后跟我奶奶爸爸妈妈说。搞得我很尴尬，还把我们家叫到他们家吃饭的时候说。我已经懂了，伯母就是一个不太适合分享事情的多嘴婆。</span></p><p><span>还有写细节我没有想到的先不点名了，就是让我感觉到，这个世界的人很油腻。我也不想背后太说人坏话，单纯觉得这些人不太适合打交道。我想我不搭理就是。</span></p><h2><a name="无奈的现实" class="md-header-anchor"></a><span>无奈的现实</span></h2><p><span>家人只有等我不再搭理他们了，他们才开始奇怪，为什么我的儿子不高兴了？</span></p><p><span>我爸才开始问我，是不是我对家里人有什么要求···</span></p><p><span>才开始问我，是不是我觉得有什么问题，需要他们解决的···</span></p><p><span>他们还和我说，你要把问题提出来，把问题解决了，才好···</span></p><p><font size="55px" color="red"><span>我想问有用吗？</span></font></p><p><font size="55px" color="red"><span>这些永久性的损失怎么可能补偿？</span></font></p><p><span>我和很多人说过我家里的问题，也很庆幸，我在家里收到的伤害能在加外面得到缓解。</span></p><p><span>我很感激这么多年来认识的一批又一批的朋友，和他们攀谈解决了我很多问题。</span></p><p><span>但是对于我家里，我已经放弃了。我只想和我后妈说的一样，做好我的本分就是了。</span></p><p><span>我是去的就失去吧，爱咋咋地，各自开心就好。</span></p><p>&nbsp;</p><h2><a name="重中之重" class="md-header-anchor"></a><span>重中之重</span></h2><ul><li><span>我的任何问题</span><strong><span>【全-部-都-是】</span></strong><span>父亲家庭</span><strong><span>【原-生-家-庭】</span></strong><span>这边给我造成的，我生母只是带我出去玩，陪我而已。她对我来说才是一个可以沟通的朋友的角色。再把我的问题归结与她那我只能说：那-没-事-了。</span></li><li><span>我和生母几乎一年也没几次机会联系。几乎都断绝了。我也不知道她什么情况，所以不要再质问我什么了。因为她会在乎我的感受，所以不会让我很为难。但是我的</span><strong><span>【原-生-家-庭】</span></strong><span>往往要让我很为难。</span></li><li><span>我的奶奶和我的爸爸是一切问题的</span><strong><span>根源</span></strong><span>。我后妈其实只是一个普通的农村妇女被卷进来了做了前台，所以最应该反思的应该是我奶奶和我爸爸。</span></li><li><span>什么样的人叫做刻薄的人？刻薄的人在我看来就，只知道怎么去批评别人，不知道怎么去鼓励别人的人。在我的成长过程中，很少听到家人的鼓励。只要一有机会，家人就会批评我或者我生母。</span></li><li><span>原谅？没有原谅不原谅的，我放弃在家假装成熟了，本来这个我爸和后妈也是凑合着过的塑料夫妻，我也塑料一点。又有什么关系呢。</span></li><li><span>至少我同父异母的弟弟算是幸福的。</span></li></ul><h2><a name="什么是爱关心" class="md-header-anchor"></a><span>什么是爱/关心</span></h2><p><span>我觉得爱是建立在相互尊重的基础上的。</span></p><p><span>我觉得，爱一个人不是勉强对方去做不情愿做的事情，爱一个人应该是督促自己去做一个对对方来说更好的人。</span></p><p><span>但是这都是我觉得，我的家人只在乎，【是不是为了我好】。</span></p><p><span>呵。</span></p><p><span>只要我高兴了我什么都好。</span></p><p><span>问题还在于我家人一开口总会让我不高兴。</span></p><p><span>那么</span><strong><span>【为了我好】</span></strong><span>我真更喜欢他们给我，闭嘴。</span></p></div>
+</body>
+</html>
