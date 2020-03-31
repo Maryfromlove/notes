@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>2</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="续集" class="md-header-anchor"></a><span>续集</span></h1><p><span>本文进一步分析：我的爸妈是如何听风就是雨，不会实事求是，不追求事实原委，且热衷胡编乱造，酷爱乱贴标签的。</span></p><p><span>下面给大家讲讲更多的细节：</span></p><p>&nbsp;</p><h2><a name="续文1电动自行车" class="md-header-anchor"></a><span>续文1：电动自行车</span></h2><p><span>我在大二的时候，好像被后妈看到过一段微信动态。</span></p><p><span>大致内容是说，我在使用电动自行车代步。</span></p><p><span>从那以后，我后妈通过她对这一条动态的个人主观臆想，对我贴上标签，她多次在我面前的场合宣称，我不会骑自行车，我在学校里都是租用电动的自行车代步的。</span></p><p><span>并以此来</span><strong><span>诽谤和嘲讽</span></strong><span>我不会自行车。</span></p><p><span>首先，从【正常逻辑】的方面来说，这合理吗？真的不合理。</span></p><p><span>其次，从【素质素养】的角度来说，这合适吗？简直是荒谬。</span></p><hr /><p><span>可能你们不明白为什么她这样点点愚昧表现，会让我那么生气。我来给大家理一理：</span></p><p><span>首先澄清事实，电动自行车我最多用过两次，后来学校的代步工具调整，很多无论是共享交通工具都被清理过，所以我依赖这个工具的说法，不成立。</span></p><p><span>其次，我会骑自行车，而且是我一到大学第一次上车就会骑，而且从来没有摔过。</span></p><p><span>而且唯一真的有帮助到我的学会骑自行车的人，是我的同桌。高中的某一个周末他把自行车借给我练习。虽然他的自行车很老，但是他扶我的时候被我撞过也没说什么我很感动。</span></p><p><span>而且，我大学骑自行车从来没撞过，摔过。所以我不会骑自行车的说法，不成立。</span></p><hr /><p><span>那有什么好生气的呢？</span></p><p><span>我的气点在于，我为什么会去用那个【电动自行车】？</span></p><p><span>还不是因为真的上课来不及了，室友都坐自己的电瓶车走了，而我走路根本赶不到吗？</span></p><p><span>是的，我在学校的主要交通方式是走路，从杏男寝走到29幢教学楼要15~20分钟。这个距离差不多斜着横跨大半个校园的距离。</span></p><p><span>偶尔能抢到自行车的时候，能10分钟左右赶到。但是一般上课前抢不到自行车的。</span></p><p><span>所以我很多同学都合租或者自己买了电瓶车代步，大约2000不等。</span></p><p><span>我觉得我自己还是比较有良心的，我知道我不是独生子女，我去考虑钱的问题的时候都会去设身处地地为其他家庭成员考虑。我潜意识里就有很强地意识告诉我，我不应该乱花钱。</span></p><p><span>因为钱不是我挣的，我乱花不体面；而且我弟弟还在上小学，我一个上大学的长子如果太任性的话，家里的资金分配就会很困；而且的而且我确实有一定的自尊，我能自己解决的事情，我一般都不爱麻烦我以外的人。</span></p><p><span>我自己负担不起电瓶车，而且也进进出出坚持走下来了，我也知道和我一样的人有很多。所以我并没有因为这个而生过什么气。</span></p><p><span>直到我后妈那我骑【电动自行车】开玩笑以后。我感到很心寒，而且我也解释了，但是也没见的她听进去多少。她既然不关心事实，我不是观世音菩萨，又何德何能可以让她醒悟呢？</span></p><p><span>从那以后，我的微信动态决定不想用了，我不需要去屏蔽，因为我其实根本不需要微信动态。我的微信动态发的目的，也是因为只有我家人会看会在意，同学很少关注微信的。</span></p><p><span>但我在删微信的时候发现，其实也不是每条微信动态都有点赞。苦笑。</span></p><p><strong><span>既然我发微信动态只会给她曲解，歪曲，变成伤害我的东西，我为什么要发呢？</span></strong></p><p><strong><span>且不提我一切的初衷都是为了更节约，不想乱花父母钱而已。是谁步步紧逼让我无可奈何的呢？</span></strong></p><h2><a name="续文2导火索------你这么电话不接啊" class="md-header-anchor"></a><span>续文2：导火索——你这么电话不接啊？？？</span></h2><p><span>我在家里受到许多不公的对待还有怨气，迟早会有一天达到我忍耐的限度的。</span></p><p><span>于是那么一天就来了。</span></p><p><span>2019年大三刚开学不久，我来到学校，一段时间非常忙碌。我后母学费打过来了，那天深夜我很累而且很忙肝一个作业，我没有心思来分神去处理她的消息，而且她本身已经让我很不高兴了。</span></p><p><span>我事情做完已经凌晨三四点了，我看了消息，已阅。我知道是什么事情，学费到账了，那不是普普通通吗？有什么好着急的啊？银行不会给我对不上账的把？</span></p><p><strong><span>唯一的风险只存在于，她输错了卡号，这笔钱才有可能会丢。</span></strong></p><p><span>而她却似乎完全把责任丢在我身上，每次转账都要我确认，把我作为负责主体，要是钱转没了好像也要怪我一样。这是</span><strong><span>荒谬</span></strong><span>的。</span></p><p><span>但是好像就这样第二天早晨，我被她的电话吵醒是辅导员好像他们跟我说我爸妈打电话联系不上我，问我怎么了，是不是平安，还是很中肯地对我我劝说，那我还可以好。</span></p><p><span>然后她就点华打来了，我心软了，接了，她劈头盖脸第一句就是：</span></p><p><span>【你怎么不接电话啊？？？】</span></p><p><span>这句的语气像什么？催债。不管是谁，这样的口气，大清早刚醒来一个人，能舒舒服服给你个好心情？对我来说，不可能的，完全是放屁的。</span></p><p><span>那时候我就在想的是什么呢：我在学校里，我也没花钱很快，也很少主动向家里要钱，要是他们忘记给我打钱了我也是自己用风险储备先撑着的。我看了一眼支付宝账单，2019年我平均每天消费21元，假如去掉不在学校里的时间，我每天的消费大概是30元，而且这是包括什么，包括了我买生活用品和出去比赛的差旅费的。</span></p><p><span>我自己看到这个数字的时候我都不可思议。但是我很开心因为我觉得我做的蛮好了，也算是一个用度不大的人了吧。</span></p><p><span>我这么勉强自己，还不是为了省掉家里对我的开支，能让父母轻松一点？我去努力争取奖学金，不也是为了能把出去比赛的费用垫底掉？我那么用心去体谅父母的辛苦了。结果呢？</span></p><p><span>后母对我的态度就是催债一样和我说：</span></p><p><span>【你怎么不接电话啊？？？】</span></p><p><span>然后怎么着？她没问我原因，没关心我是不是出事了，是不是身体不舒服，最近发生了什么。她下面的话是催我快点去看钱到账没有。</span></p><p><span>所以我知道，她在那一刻，她在乎的是那10000块学费，不是我的安危。</span></p><p><span>所以我生气了，挂电话了，我无fuck说了。很过分吗？是谁更过分？</span></p><hr /><h2><a name="续文3天才妇女天秀操作" class="md-header-anchor"></a><span>续文3：天才妇女，天秀操作</span></h2><p><span>过了很久我发现一件很奇怪的事情。</span></p><p><span>那天我后妈打给了所有她能打的老师，但是我室友没有收到她的电话。</span></p><p><span>我的辅导员班主任还是通过我室友得知我在寝室一切正常的。</span></p><p><img src="2.assets/image-20200331202741246.png" referrerpolicy="no-referrer" alt="image-20200331202741246"></p><p><span>我在大一刚入学不久，我记得很清楚，我绝对把我室友的电话给她了，而且是微信发给她的。而且我还叮嘱过她了，大学里室友接触更多，我如果出事情了，收到诈骗短信了说我怎么怎么啦，室友肯定是最先找到我确认的。</span></p><p><span>我绝对说过，我很有安全意识。</span></p><p><span>结果呢？</span></p><p><span>我室友就睡在我一米不到的地方，她大清早爬起来打电话给我几公里外的老师。</span></p><p><span>这不是愚蠢是什么？</span></p><p><span>但是最让我心寒的是：我没给你讲过，那就算了，我也不多想。但是我给你讲过，结果你没放在心上。我能想到唯一的原因就是的，我不是亲生的，不配人家惦记。</span></p><p><span>那我要说，就算我不是亲生的，我也给我后妈赚够了面子吧？我也很多时候都在为她着想吧？我爸家暴的时候我是心里站在她这一边的吧？</span></p><p><span>但是这些我无所谓了，不把我当自己孩子，我真的不介意了。</span></p><p><span>我发现我想要的，不是一个刻意为之的母爱，我想要的是一个对人起码的尊重。</span></p><p><span>你尊重一个人，打电话会随意吼人，语言暴力吗？而且是责任完全在你自己的时候。</span></p><p><span>所以我真的很难过，而且我居然还在心里为这样的行为开脱。</span></p><p><span>抱歉，从那以后不会了，没有道歉就没有原谅，我需要得到正式的逐一的道歉，才有可能原谅。</span></p><p>&nbsp;</p><p><span>待续，精彩内容，敬请期待。</span></p></div>
+</body>
+</html>
